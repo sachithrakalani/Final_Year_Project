@@ -1,12 +1,11 @@
-function App() {
+import ReviewHomePage from "./component/ReviewHomePage";
 
+function App() {
   return (
-    <div>
-      Hello
-      <div className="App">
-      </div>
+    <div className="App">
+      <ReviewHomePage />
     </div>
   );
 }
 
-export default App
+export default App;
