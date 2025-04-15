@@ -6,11 +6,15 @@ export default function ReviewHomePage() {
       <div className={style.main}>
         <center>
           <h2 className={style.title}>Review Gard</h2>
-          <label htmlFor="text">Past the Review</label>
-          <input></input>
-          <button className={style.button}>Submit</button>
-          <lable className={style.resultlable}>Result</lable>
-          <input className={style.resultinputfield}></input>
+          <form>
+            <label htmlFor="text" className={style.reviewlable}>Past the Review</label>
+            <textarea id="review" className={style.reviewtextfield}></textarea>
+            <button className={style.button}>Submit</button>
+            <label htmlFor="result" className={style.resultlable}>
+              Result
+            </label>
+            <input id="result" className={style.resultinputfield} readOnly />
+          </form>
         </center>
       </div>
     </div>
