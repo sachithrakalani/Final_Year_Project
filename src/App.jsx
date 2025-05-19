@@ -1,4 +1,4 @@
-import HotelHomePageHeader from "./component/HotelHomePageHeader";
+import HotelHomePageHeader from "./component/HotelHomePageHeader.jsx";
 import ReviewHomePage from "./component/ReviewHomePage";
 
 function App() {
