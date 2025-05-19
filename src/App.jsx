@@ -1,9 +1,11 @@
+import HotelHomePageHeader from "./component/HotelHomePageHeader";
 import ReviewHomePage from "./component/ReviewHomePage";
 
 function App() {
   return (
     <div className="App">
-      <ReviewHomePage />
+      {/* <ReviewHomePage /> */}
+      <HotelHomePageHeader />
     </div>
   );
 }
