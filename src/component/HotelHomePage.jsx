@@ -1,4 +1,6 @@
 import Homeimg from "../../public/assets/DreamHomeImage.jpeg";
+import HotelHomePageBody from "./HotelHomePageBody";
+
 export default function HotelHomePage() {
   return (
     <div>
@@ -9,6 +11,7 @@ export default function HotelHomePage() {
           <hr />
         </div>
       </div>
+      < HotelHomePageBody/>
     </div>
   );
 }
