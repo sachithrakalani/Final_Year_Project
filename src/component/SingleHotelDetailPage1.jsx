@@ -172,7 +172,6 @@ export default function SingleHotelDetailPage1() {
         Hotel not found.
       </p>
     );
-
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -193,13 +192,18 @@ export default function SingleHotelDetailPage1() {
 
     try {
       const response = await axios.post("http://localhost:3000/api/review", {
-        review,
+        review: comment.trim(),
       });
 
       if (response.status === 200) {
-        setReviews((prev) => [review, ...prev]);
+        const result = response.data.data.result;
+        if (result === "Real Review") {
+          setReviews((prev) => [review, ...prev]);
+        } else {
+          alert("This review appears to be fake and was not submitted.");
+        }
+
         setUserName("");
-        setRating(5);
         setComment("");
       } else {
         setErrorMsg("Failed to submit review. Please try again.");
@@ -280,23 +284,6 @@ export default function SingleHotelDetailPage1() {
                 disabled={loading}
               />
 
-              <label className="block mb-2 font-medium" htmlFor="rating">
-                Rating
-              </label>
-              <select
-                id="rating"
-                value={rating}
-                onChange={(e) => setRating(e.target.value)}
-                className="w-full mb-4 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                disabled={loading}
-              >
-                {[5, 4, 3, 2, 1].map((val) => (
-                  <option key={val} value={val}>
-                    {val} Star{val > 1 ? "s" : ""}
-                  </option>
-                ))}
-              </select>
-
               <label className="block mb-2 font-medium" htmlFor="comment">
                 Comment
               </label>
@@ -349,7 +336,7 @@ export default function SingleHotelDetailPage1() {
 
           <div className="mt-10 text-center">
             <Link
-              to="/hotels"
+              to="/"
               className="text-blue-600 hover:underline font-semibold"
             >
               &larr; Back to Hotels List
